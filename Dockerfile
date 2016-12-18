@@ -8,12 +8,6 @@ apt-get clean  && \
 apt-get install -y python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc curl && \
 apt-get clean
 
-#install nodejs npm
-RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash
-RUN apt-get install nodejs -y
-RUN node -v
-RUN npm -v
-
 RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git ssr
 RUN git clone https://github.com/snooda/net-speeder.git net-speeder
 WORKDIR net-speeder
@@ -24,8 +18,11 @@ COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/net_speeder
 
-
-
+#install nodejs npm
+RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash
+RUN apt-get install nodejs -y
+RUN node -v
+RUN npm -v
 
 
 # Start Net Speeder
