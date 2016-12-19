@@ -25,6 +25,7 @@ RUN node -v
 RUN npm -v
 
 #install pm2 
+WORKDIR ~/
 RUN npm install -g pm2
 RUN mkdir wwwroot
 COPY server.js wwwroot
