@@ -1,0 +1,9 @@
+{
+  "name": "ssr-with-net-speeder",
+  "version": "1.0.0",
+  "author": "Tua-51.RUYO.net",
+  "description": "",
+  "dependencies": {
+    "express": "4.*"
+  }
+}
