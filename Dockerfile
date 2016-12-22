@@ -32,7 +32,7 @@ COPY server.js wwwroot
 COPY package.json wwwroot
 WORKDIR wwwroot
 RUN npm install
-RUN pm2 start server.js
+#RUN pm2 start server.js
 
 # Start Net Speeder
 #CMD ["nohup /usr/local/bin/net_speeder venet0 \"ip\" >/dev/null 2>&1 &"]
