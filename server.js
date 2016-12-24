@@ -5,7 +5,7 @@ var app = express()
 
 app.get('/', function (req, res) {
     superagent.post("https://app.arukas.io/api/login")
-        .send({email: "yourmail@gmail.com", password: "yourArukasPassword"})
+        .send({email: "$EMAIL", password: "$PWD"})
         .end(function(lres){
              var cookie = lres.header['set-cookie'];
             superagent.get("https://app.arukas.io/api/containers")
