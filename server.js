@@ -2,7 +2,7 @@ var superagent = require('superagent');
 
 require('http').createServer(function(req, res) {  
     superagent.post("https://app.arukas.io/api/login")
-    .send({email: "1575550621@qq.com", password: "13611349089"})
+    .send({email: "$ENAIL", password: "$PWD"})
     .end((err, sres) => {
         var cookie = sres.header['set-cookie'];
         superagent.get("https://app.arukas.io/api/containers")
