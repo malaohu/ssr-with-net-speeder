@@ -1,7 +1,7 @@
 # 注意该源码不是部署SSR
 
 本代码是部署一个NODEJS项目，自动获取arukas的IP和端口的。
-Start
+
 ### 部署方法
 ```
 镜像：malaohu/ssr-with-net-speeder-arukas
