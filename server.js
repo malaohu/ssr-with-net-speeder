@@ -5,9 +5,9 @@ var app =   express();
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/');
-email   =   '$$$EMAIL',
-pwd     =   '$$$PWD', 
-appid   =   '$$$APPID',
+email   =   '___EMAIL',
+pwd     =   '___PWD', 
+appid   =   '___APPID',
 images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","lowid/ss-with-net-speeder:latest","smounives/shadowsocksr-docker"];
 
 
