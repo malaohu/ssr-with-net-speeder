@@ -2,9 +2,10 @@ var express = require('express');
 var superagent = require('superagent');
 var ejs = require('ejs');
 var app =   express();
+app.use(express.static(__dirname + '/public'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
-app.set('views', __dirname + '/');
+app.set('views', __dirname + '/views');
 var args = process.argv.slice(2)
 email   =   args[0],
 pwd     =   args[1], 
@@ -33,6 +34,7 @@ function getit(appid,callback)
                     var ret_ip = '',ret_port=80;
 		            for (var i = 0; i < data.length; i++)
 		            {
+                        console.log(i);
                         if(data[i].id == appid ||(appid == 'all' && images.indexOf(data[i].attributes.image_name)>-1) )
                         {
 			                var jn = data[i];	
@@ -43,16 +45,10 @@ function getit(appid,callback)
                                 var service_port = jn.attributes.port_mappings[j][0].service_port;
                                 var container_port = jn.attributes.port_mappings[j][0].container_port;
                                 var cmd = jn.attributes.cmd;
-                                
-                                var ss_methond = '';
-                                var ss_password = '';
-                                var ss_port = '';
-                                var ss_protocol = '';
-                                var ss_obfs = '';
-                                
-                                //try to get ss methond
+                                var ss_method = '',ss_password = '',ss_port = '',ss_protocol = '',ss_obfs = '';
+                                //try to get ss method
                                 if(/-m\s+([^ ]+)/.test(cmd))
-                                    ss_methond = RegExp.$1;
+                                    ss_method = RegExp.$1;
                                 //try to get ss password
                                 if(/-k\s+([^ ]+)/.test(cmd))
                                     ss_password = RegExp.$1;
@@ -67,7 +63,7 @@ function getit(appid,callback)
                                     ss_obfs = RegExp.$1;
                                 if(ss_port == container_port)
                                 {
-                                    var ret_json = {"server":ip,"server_port":service_port,"method":ss_methond};
+                                    var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};
                                     if(ss_protocol && ss_obfs)
                                     {
                                         ret_json["protocol"] = ss_protocol;
@@ -77,11 +73,9 @@ function getit(appid,callback)
                                     break;
                                 }
                             }
-                            return callback(null,ret_list);
                         }
-                        return callback('can not find appid : ' + appid,null);
 		            }
-                    return callback('can not find any app',null);
+                    return callback(null,ret_list);
             })
         })
     
