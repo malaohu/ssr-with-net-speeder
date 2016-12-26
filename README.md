@@ -7,7 +7,9 @@
 镜像：malaohu/ssr-with-net-speeder-arukas
 端口:3999 TCP
 CMD : node /app/server.js xxxx@gmail.com password xxxxx-appid-xxxxxx
-
+#注意邮箱，密码和appid直接有一个空格
+#
+#
 ```
 
 详细说明一下CMD中的命令。
