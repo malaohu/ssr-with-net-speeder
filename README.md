@@ -1,6 +1,6 @@
 # 注意该源码不是部署SSR
 
-本代码是部署一个nodejs项目，自动获取arukas的IP和端口的。
+本代码是部署一个nodejs项目，自动实时获取arukas的IP和端口的。
 
 演示地址：https://free-shadowsocks.arukascloud.io/
 
@@ -8,7 +8,7 @@
 ```
 镜像：malaohu/ssr-with-net-speeder-arukas
 端口:3999 TCP
-CMD : node /app/server.js Token Secret xxxxx-appid-xxxxxx
+CMD : node /app/server.js token secret xxxxx-appid-xxxxxx
 #推荐使用上面的CMD命令
 
 CMD : node /app/server.js xxxx@gmail.com password xxxxx-appid-xxxxxx
@@ -18,7 +18,7 @@ CMD : node /app/server.js xxxx@gmail.com password xxxxx-appid-xxxxxx
 
 详细说明一下CMD中的命令。
 
-Token 和 Secret 获取地址：
+token 和 secret 获取地址：
 
 https://app.arukas.io/settings/api-keys
 
