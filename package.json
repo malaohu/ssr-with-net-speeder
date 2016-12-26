@@ -1,10 +1,11 @@
 {
-  "name": "arukas-ip-port-api",
+  "name": "arukas-get-ip-port",
   "version": "1.0.0",
-  "author": "Tua-51.RUYO.net",
+  "author": "Malaohu",
   "description": "",
   "dependencies": {
     "express": "4.*",
+    "ejs": "*",
     "superagent":"*"
   }
 }
