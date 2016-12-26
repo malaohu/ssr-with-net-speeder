@@ -35,7 +35,7 @@ function getit(appid,callback)
 		            for (var i = 0; i < data.length; i++)
 		            {
                         console.log(i);
-                        if(data[i].id == appid ||(appid == 'all' && images.indexOf(data[i].attributes.image_name)>-1) )
+                        if(data[i].id == appid ||(appid == 'all' && images.indexOf(data[i].attributes.image_name.replace(/:[^ ]+/,''))>-1) )
                         {
 			                var jn = data[i];	
                             for (var j = 0; j < jn.attributes.port_mappings.length; j++)
