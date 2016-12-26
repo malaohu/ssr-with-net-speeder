@@ -9,7 +9,7 @@ var args = process.argv.slice(2)
 email   =   args[0],
 pwd     =   args[1], 
 appid   =   args[2],
-images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","lowid/ss-with-net-speeder:latest","smounives/shadowsocksr-docker"];
+images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","lowid/ss-with-net-speeder:latest","smounives/shadowsocksr-docker","mritd/shadowsocks",];
 
 
 app.get('/', function(req, res) {
