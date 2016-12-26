@@ -2,6 +2,8 @@
 
 本代码是部署一个nodejs项目，自动获取arukas的IP和端口的。
 
+演示地址：https://free-shadowsocks.arukascloud.io/
+
 ### 部署方法
 ```
 镜像：malaohu/ssr-with-net-speeder-arukas
