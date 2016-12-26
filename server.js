@@ -5,9 +5,10 @@ var app =   express();
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/');
-email   =   '___EMAIL',
-pwd     =   '___PWD', 
-appid   =   '___APPID',
+var args = process.argv.slice(2)
+email   =   args[0],
+pwd     =   args[1], 
+appid   =   args[2],
 images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","lowid/ss-with-net-speeder:latest","smounives/shadowsocksr-docker"];
 
 
@@ -100,7 +101,7 @@ app.get('/i', function (req, res) {
     res.send('http://51.ruyo.net');
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000')
+app.listen(3999, function () {
+  console.log('Example app listening on port 3999')
 })
 
