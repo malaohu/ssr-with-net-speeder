@@ -107,7 +107,6 @@ function deal_data(_appid,data,callback)
                         ret_json["obfs"] = ss_obfs;
                     }
                     ret_list.push(ret_json);
-                    break;
                 }
             }
         }
