@@ -27,7 +27,7 @@ xxxx@gmail.com  是arukas注册邮箱。
 
 password 是arukas登录密码。
 
-xxxxx-appid-xxxxxx 是你要获取IP和端口的APPID （也可以输入all）
+xxxxx-appid-xxxxxx 是你要获取IP和端口的APPID （也可以不传，默认是 all）
 
 你建立的APP都有一个ID。例如：
 ID	fd9b708e-9a2c-45a0-b81c-620944369c2d
