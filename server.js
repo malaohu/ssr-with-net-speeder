@@ -22,12 +22,12 @@ if(args[0].indexOf('@') > -1)
 }
 
 
-appid   =   args[2],
+appid   =   args[2] || 'all',
 images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","smounives/shadowsocksr-docker"];
 
 
 app.get('/', function(req, res) {
-    getit('all',function(err,data){   
+    getit(appid,function(err,data){   
         res.render('./index.html',{"data":data});
     })
 });
