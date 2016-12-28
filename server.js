@@ -7,10 +7,7 @@ app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 var args = process.argv.slice(2);
-var email = '';
-var pwd = '';
-var token = '';
-var secret = '';     
+var email = '',pwd = '',token = '',secret = '';     
 if(args[0].indexOf('@') > -1)
 {
     email   =   args[0];
@@ -28,7 +25,10 @@ images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","smouniv
 
 app.get('/', function(req, res) {
     getit(appid,function(err,data){   
-        res.render('./index.html',{"data":data});
+        if(err || !data)
+            res.send('没有查询到数据。请检查node启动参数是否正确。更多内容请访问：https://github.com/malaohu/ssr-with-net-speeder/tree/arukas');
+        else    
+            res.render('./index.html',{"data":data || []});
     })
 });
 
@@ -75,6 +75,9 @@ function deal_data(_appid,data,callback)
         if(data[i].id == _appid ||(_appid == 'all' && images.indexOf(data[i].attributes.image_name.replace(/:[^ ]+/,''))>-1) )
         {
 	        var jn = data[i];	
+            console.log(jn);
+            if(!jn.attributes.port_mappings)
+                continue;
             for (var j = 0; j < jn.attributes.port_mappings.length; j++)
             {
                 var host = jn.attributes.port_mappings[j][0].host;    
@@ -131,4 +134,3 @@ app.get('/i', function (req, res) {
 app.listen(3999, function () {
   console.log('Example app listening on port 3999')
 })
-
