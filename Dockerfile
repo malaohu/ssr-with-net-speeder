@@ -1,8 +1,6 @@
 FROM alpine
 MAINTAINER juzeon <master@skyju.cc>
 
-ENV TZ "Asia/Shanghai"
-RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main" > /etc/apk/repositories
 
 RUN apk update && \
     apk add --no-cache openssh python py-pip python-dev py-crypto libnet-dev libpcap-dev libcap-dev git gcc libffi-dev openssl-dev
