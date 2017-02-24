@@ -21,5 +21,3 @@ EXPOSE 25565
 EXPOSE 22
 # Configure container to run as an executable
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-
-CMD ["/usr/bin/python /ssr/shadowsocks/server.py -s 0.0.0.0 -p 25565 -k password -m rc4-md5 -o http_simple -O auth_sha1"]
