@@ -1,4 +1,4 @@
-FROM 1.7-alpine
+FROM golang:1.7-alpine
 MAINTAINER juzeon <master@skyju.cc>
 
 #ENV TZ "Asia/Shanghai"
