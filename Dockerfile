@@ -1,9 +1,11 @@
 FROM alpine
 MAINTAINER juzeon <master@skyju.cc>
 
+#ENV TZ "Asia/Shanghai"
+#RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main" > /etc/apk/repositories
 
 RUN apk update && \
-    apk add --no-cache openssh python py-pip python-dev py-crypto libnet-dev libpcap-dev libcap-dev git gcc libffi-dev openssl-dev
+    apk add --no-cache openssh python py-pip python-dev py-crypto libnet-dev libpcap-dev libcap-dev git gcc libffi-dev openssl-dev musl-dev
 
 RUN echo "root:password"|chpasswd
 RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git ssr
