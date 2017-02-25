@@ -1,11 +1,10 @@
 FROM golang:1.7-alpine
 MAINTAINER juzeon <master@skyju.cc>
 
-#ENV TZ "Asia/Shanghai"
-#RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main" > /etc/apk/repositories
-
-RUN apk update && \
-    apk add --no-cache openssh python py-pip python-dev py-crypto libnet-dev libpcap-dev libcap-dev git gcc libffi-dev openssl-dev musl-dev
+RUN apt-get update && \
+apt-get clean  && \
+apt-get install -y openssh python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
+apt-get clean
 
 RUN echo "root:password"|chpasswd
 RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git ssr
