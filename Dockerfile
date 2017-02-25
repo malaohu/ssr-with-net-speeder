@@ -1,4 +1,4 @@
-FROM golang:1.7-alpine
+FROM debian:stable
 MAINTAINER juzeon <master@skyju.cc>
 
 RUN apt-get update && \
