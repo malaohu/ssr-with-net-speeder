@@ -3,7 +3,7 @@ MAINTAINER juzeon <master@skyju.cc>
 
 RUN apt-get update && \
 apt-get clean  && \
-apt-get install -y openssh python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
+apt-get install -y openssh-server python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
 apt-get clean
 
 RUN echo "root:password"|chpasswd
