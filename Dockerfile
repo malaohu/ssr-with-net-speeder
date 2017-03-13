@@ -8,7 +8,7 @@ apt-get clean  && \
 apt-get install -y python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
 apt-get clean
 
-RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git ssr
+RUN git clone -b manyuser https://github.com/shadowsocksr/shadowsocksr.git ssr
 RUN git clone https://github.com/snooda/net-speeder.git net-speeder
 WORKDIR net-speeder
 RUN sh build.sh
