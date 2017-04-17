@@ -1,5 +1,4 @@
 # ssr-with-net-speeder
-
 FROM ubuntu:14.04.3
 MAINTAINER malaohu <tua@live.cn>
 
