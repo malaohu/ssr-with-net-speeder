@@ -20,7 +20,7 @@ if(args[0].indexOf('@') > -1)
 
 
 appid   =   args[2] || 'all',
-images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","smounives/shadowsocksr-docker"];
+reg_images = /^[^\/]+\/(ssr?-with-net-speeder||shadowsocksr-docker)(:[^ ]+)?$/i
 
 
 app.get('/', function(req, res) {
@@ -72,10 +72,10 @@ function deal_data(_appid,data,callback)
     var ret_list = [];
 	for (var i = 0; i < data.length; i++)
 	{
-        if(data[i].id == _appid ||(_appid == 'all' && images.indexOf(data[i].attributes.image_name.replace(/:[^ ]+/,''))>-1) )
+        //if(data[i].id == _appid ||(_appid == 'all' && images.indexOf(data[i].attributes.image_name.replace(/:[^ ]+/,''))>-1) )
+        if(data[i].id == _appid ||(_appid == 'all' && reg_images.test(data[i].attributes.image_name)) )
         {
 	        var jn = data[i];	
-            console.log(jn);
             if(!jn.attributes.port_mappings)
                 continue;
             for (var j = 0; j < jn.attributes.port_mappings.length; j++)
@@ -125,10 +125,6 @@ app.get('/:appid',function(req,res){
     else
         return res.send(data);
    }); 
-})
-
-app.get('/i', function (req, res) {
-    res.send('http://51.ruyo.net');
 })
 
 app.listen(3999, function () {
