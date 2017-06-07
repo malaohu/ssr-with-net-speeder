@@ -117,6 +117,20 @@ function deal_data(_appid,data,callback)
     return callback(null,ret_list);
 }
 
+function build_ssh(obj){
+    var group_name = 'Arukas-SSR';
+    var group_name_base64 = 'QXJ1a2FzLVNTUg';
+    var remark = 'RUYO.net';
+    var remark_base64 = 'UlVZTy5uZXQ';
+    console.log(obj);
+    if(!obj)
+        return null
+    var pwd_base64 = new Buffer(obj.password).toString('base64');
+    return 'ssr://' + obj.server + ':' + obj.server_port + ':' + obj.protocol +':' + obj.method + ':' + obj.obfs + ':' + pwd_base64 
+        + '/?obfsparam=&remarks=' + remark_base64 + '&group='+group_name_base64;
+}
+
+
 app.get('/:appid',function(req,res){
    var _appid = req.params.appid;
    getit(_appid,function(e,data){
@@ -127,6 +141,25 @@ app.get('/:appid',function(req,res){
    }); 
 })
 
-app.listen(3999, function () {
+//获取SSR订阅地址
+//4.4.0+ 版本
+//说明文档：https://github.com/breakwa11/shadowsocks-rss/wiki/Subscribe-%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%A2%E9%98%85%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3
+app.get('/ssr/subscribe/:max',function(req,res){
+    var max = parseInt(req.params.max);
+    getit('all',function(e,data){
+        res_arr = [];
+        if (max > 0)
+            res_arr.push('MAX=' + max);
+        for(var i = 0; i < data.length; i++)
+            if(data[i].protocol)
+                res_arr.push(build_ssh(data[i]))
+        console.log(res_arr.join('\n'));
+        
+        res.send(new Buffer(res_arr.join('\n')).toString('base64'))
+                
+    });
+});
+
+app.listen(13999, function () {
   console.log('Example app listening on port 3999')
 })
