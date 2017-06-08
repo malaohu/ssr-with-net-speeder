@@ -1,3 +1,5 @@
+# 该分支代码不再做大的更新了。请大家访问新的项目代码。 https://github.com/malaohu/Arukas-API
+
 # 特别说明
 
 本分支代码不是部署 SSR/SS 
