@@ -10,4 +10,4 @@ fi
 
 /etc/init.d/ssh restart
 
-/usr/bin/python /ssr/shadowsocks/server.py "$@"
+/usr/bin/python /suansuanru/shadowsocks/server.py "$@"
