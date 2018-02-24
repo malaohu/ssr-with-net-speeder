@@ -8,8 +8,8 @@ docker run -d --name ssr-with-net-speeder -p 8989:8989 malaohu/ssr-with-net-spee
 ```
 
 
-## Arukas.io 启动
-
+## **Arukas.io 启动**
+该镜像已经被Arukas屏蔽，请移步 https://github.com/malaohu/ss-with-net-speeder
 ```
 镜像 ：malaohu/ssr-with-net-speeder
 启动命令(CMD) ：-s 0.0.0.0 -p 8989 -k RUYO.net -m rc4-md5 -o http_simple -O auth_sha1
